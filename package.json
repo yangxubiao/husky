@@ -10,10 +10,16 @@
   },
   "husky":{
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-add": "npm run lint",
-      "pre-push": "npm run lint"
+      "pre-commit": "lint-staged",
+      "pre-add": "lint-staged",
+      "pre-push": "lint-staged"
     }
+  },
+  "lint-staged": {
+      "src/**/*.{jsx,txs,ts,js,json,css,md}": [ 
+        "eslint --fix",
+        "git add"
+      ] 
   },
   "dependencies": {
     "vue": "^3.2.25"
@@ -23,6 +29,7 @@
     "eslint": "^8.10.0",
     "eslint-plugin-vue": "^8.5.0",
     "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
     "vite": "^2.8.0"
   }
 }
